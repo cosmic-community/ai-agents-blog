@@ -13,7 +13,6 @@ export default function NewsletterSignup({ cta }: NewsletterSignupProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!email) return
-    // In a real app, integrate with your email service
     setStatus('success')
     setEmail('')
     setTimeout(() => setStatus('idle'), 3000)
@@ -21,12 +20,12 @@ export default function NewsletterSignup({ cta }: NewsletterSignupProps) {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="relative glass-card rounded-2xl p-8 md:p-12">
+      <div className="relative glass-card glow-border rounded-2xl p-8 md:p-12">
         {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 via-transparent to-cyber-500/5 rounded-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-cyan-500/5 rounded-2xl" />
 
         <div className="relative max-w-xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-full text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-violet-500/10 border border-violet-500/20 text-violet-300 rounded-full text-xs font-semibold">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
@@ -47,19 +46,19 @@ export default function NewsletterSignup({ cta }: NewsletterSignupProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@company.com"
-              className="flex-1 px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent text-sm"
+              className="flex-1 px-4 py-3 rounded-xl bg-white dark:bg-[#0e1224] border border-gray-200 dark:border-violet-500/20 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent text-sm"
               required
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-medium rounded-xl transition-colors duration-200 text-sm whitespace-nowrap shadow-md shadow-accent-500/25 hover:shadow-lg hover:shadow-accent-500/30"
+              className="px-6 py-3 bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 text-white font-medium rounded-xl transition-all duration-200 text-sm whitespace-nowrap shadow-md shadow-violet-500/25 hover:shadow-lg hover:shadow-violet-500/30"
             >
               Subscribe
             </button>
           </form>
 
           {status === 'success' && (
-            <p className="text-cyber-600 dark:text-cyber-400 text-sm font-medium animate-fade-in">
+            <p className="text-cyan-400 text-sm font-medium animate-fade-in">
               ✓ You&apos;re subscribed! Welcome aboard.
             </p>
           )}

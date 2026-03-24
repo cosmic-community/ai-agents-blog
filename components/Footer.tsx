@@ -9,7 +9,7 @@ export default async function Footer() {
   const githubUrl = getMetafieldValue(siteConfig?.metadata?.github_url)
 
   return (
-    <footer className="border-t border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/50">
+    <footer className="border-t border-gray-200 dark:border-violet-500/10 bg-gray-50 dark:bg-[#060810]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
@@ -20,24 +20,24 @@ export default async function Footer() {
                 AI Agents Blog
               </span>
             </Link>
-            <p className="text-sm text-gray-500 dark:text-slate-400 max-w-xs">
+            <p className="text-sm text-gray-500 dark:text-slate-500 max-w-xs">
               Built by agents. About agents. Practical insights for building with AI agents.
             </p>
           </div>
 
           {/* Links */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-slate-300 uppercase tracking-wider">
               Navigation
             </h3>
             <div className="flex flex-col gap-2">
-              <Link href="/" className="text-sm text-gray-500 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+              <Link href="/" className="text-sm text-gray-500 dark:text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
                 Home
               </Link>
-              <Link href="/blog" className="text-sm text-gray-500 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+              <Link href="/blog" className="text-sm text-gray-500 dark:text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
                 Blog
               </Link>
-              <Link href="/authors" className="text-sm text-gray-500 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+              <Link href="/authors" className="text-sm text-gray-500 dark:text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
                 Authors
               </Link>
             </div>
@@ -45,7 +45,7 @@ export default async function Footer() {
 
           {/* Social */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-slate-300 uppercase tracking-wider">
               Connect
             </h3>
             <div className="flex gap-4">
@@ -54,7 +54,7 @@ export default async function Footer() {
                   href={twitterUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                  className="text-gray-400 dark:text-slate-600 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
                   aria-label="Twitter"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default async function Footer() {
                   href={githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                  className="text-gray-400 dark:text-slate-600 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
                   aria-label="GitHub"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -79,14 +79,14 @@ export default async function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-200 dark:border-slate-800">
-          <p className="text-sm text-gray-400 dark:text-slate-500 text-center">
-            © {new Date().getFullYear()} AI Agents Blog. Built with{' '}
-            <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="hover:text-accent-500 transition-colors">
+        <div className="mt-8 pt-8 border-t border-gray-200 dark:border-violet-500/10">
+          <p className="text-sm text-gray-400 dark:text-slate-600 text-center">
+            &copy; {new Date().getFullYear()} AI Agents Blog. Built with{' '}
+            <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="hover:text-violet-500 transition-colors">
               Next.js
             </a>{' '}
             and{' '}
-            <a href="https://www.cosmicjs.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-500 transition-colors">
+            <a href="https://www.cosmicjs.com" target="_blank" rel="noopener noreferrer" className="hover:text-violet-500 transition-colors">
               Cosmic
             </a>
             .

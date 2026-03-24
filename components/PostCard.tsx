@@ -24,7 +24,7 @@ export default function PostCard({ post, className = '' }: PostCardProps) {
   })
 
   return (
-    <article className={`group glass-card rounded-xl overflow-hidden hover-lift ${className}`}>
+    <article className={`group glass-card glow-border rounded-2xl overflow-hidden hover-lift ${className}`}>
       {/* Image */}
       {featuredImage?.imgix_url && (
         <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
@@ -44,19 +44,19 @@ export default function PostCard({ post, className = '' }: PostCardProps) {
           {categoryName && (
             <Link
               href={`/categories/${category?.slug || ''}`}
-              className="px-2.5 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-full font-medium hover:bg-accent-200 dark:hover:bg-accent-900/50 transition-colors"
+              className="px-2.5 py-1 bg-violet-500/10 border border-violet-500/20 text-violet-300 rounded-full font-medium hover:bg-violet-500/20 transition-colors"
             >
               {categoryName}
             </Link>
           )}
-          <span className="text-gray-400 dark:text-slate-500">{formattedDate}</span>
+          <span className="text-slate-500">{formattedDate}</span>
           {readingTime && (
-            <span className="text-gray-400 dark:text-slate-500">· {readingTime}</span>
+            <span className="text-slate-500">&middot; {readingTime}</span>
           )}
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors line-clamp-2">
+        <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-violet-500 dark:group-hover:text-violet-400 transition-colors line-clamp-2">
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
         </h3>
 
@@ -78,19 +78,19 @@ export default function PostCard({ post, className = '' }: PostCardProps) {
 
         {/* Author */}
         {author && (
-          <div className="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-slate-700/50">
+          <div className="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-violet-500/10">
             {author.metadata?.avatar?.imgix_url && (
               <img
                 src={`${author.metadata.avatar.imgix_url}?w=64&h=64&fit=crop&auto=format,compress`}
                 alt={getMetafieldValue(author.metadata?.name) || author.title}
                 width={24}
                 height={24}
-                className="w-6 h-6 rounded-full object-cover"
+                className="w-6 h-6 rounded-full object-cover ring-1 ring-violet-500/20"
               />
             )}
             <Link
               href={`/authors/${author.slug}`}
-              className="text-xs font-medium text-gray-500 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+              className="text-xs font-medium text-gray-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 transition-colors"
             >
               {getMetafieldValue(author.metadata?.name) || author.title}
             </Link>

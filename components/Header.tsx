@@ -14,13 +14,13 @@ export default function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-card border-b border-gray-200/50 dark:border-slate-700/50">
+    <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-[#080a14]/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-violet-500/10">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <span className="text-2xl">🤖</span>
-            <span className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+            <span className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-violet-500 dark:group-hover:text-violet-400 transition-colors">
               AI Agents Blog
             </span>
           </Link>
@@ -31,7 +31,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                className="text-sm font-medium text-gray-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
               >
                 {link.label}
               </Link>
@@ -44,7 +44,7 @@ export default function Header() {
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white"
+              className="p-2 text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -69,7 +69,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors py-2"
+                  className="text-sm font-medium text-gray-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors py-2"
                 >
                   {link.label}
                 </Link>

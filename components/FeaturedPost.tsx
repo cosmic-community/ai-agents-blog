@@ -21,7 +21,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
   })
 
   return (
-    <article className="group relative glass-card rounded-2xl overflow-hidden hover-lift">
+    <article className="group relative glass-card glow-border rounded-2xl overflow-hidden hover-lift">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Image */}
         {featuredImage?.imgix_url && (
@@ -39,20 +39,20 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
         {/* Content */}
         <div className="p-6 lg:p-10 flex flex-col justify-center space-y-4">
           <div className="flex items-center gap-3 text-xs">
-            <span className="px-2 py-0.5 bg-cyber-100 dark:bg-cyber-900/30 text-cyber-700 dark:text-cyber-300 rounded-full font-semibold uppercase tracking-wider">
+            <span className="px-2.5 py-1 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 rounded-full font-semibold uppercase tracking-wider">
               Featured
             </span>
             {categoryName && (
               <Link
                 href={`/categories/${category?.slug || ''}`}
-                className="px-2.5 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-full font-medium hover:bg-accent-200 dark:hover:bg-accent-900/50 transition-colors"
+                className="px-2.5 py-1 bg-violet-500/10 border border-violet-500/20 text-violet-300 rounded-full font-medium hover:bg-violet-500/20 transition-colors"
               >
                 {categoryName}
               </Link>
             )}
           </div>
 
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white group-hover:text-violet-500 dark:group-hover:text-violet-400 transition-colors">
             <Link href={`/blog/${post.slug}`}>{post.title}</Link>
           </h2>
 
@@ -71,17 +71,17 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
                     alt={getMetafieldValue(author.metadata?.name) || author.title}
                     width={32}
                     height={32}
-                    className="w-8 h-8 rounded-full object-cover"
+                    className="w-8 h-8 rounded-full object-cover ring-2 ring-violet-500/20"
                   />
                 )}
-                <span className="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                <span className="text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-violet-500 dark:hover:text-violet-400 transition-colors">
                   {getMetafieldValue(author.metadata?.name) || author.title}
                 </span>
               </Link>
             )}
-            <span className="text-sm text-gray-400 dark:text-slate-500">{formattedDate}</span>
+            <span className="text-sm text-slate-500">{formattedDate}</span>
             {readingTime && (
-              <span className="text-sm text-gray-400 dark:text-slate-500">· {readingTime}</span>
+              <span className="text-sm text-slate-500">&middot; {readingTime}</span>
             )}
           </div>
         </div>

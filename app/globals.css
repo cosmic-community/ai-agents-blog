@@ -12,39 +12,47 @@
   }
 
   .dark {
-    --color-bg: 15 23 42;
-    --color-surface: 30 41 59;
-    --color-text: 248 250 252;
+    --color-bg: 8 10 20;
+    --color-surface: 14 18 36;
+    --color-text: 240 242 255;
     --color-text-secondary: 148 163 184;
-    --color-border: 51 65 85;
+    --color-border: 30 40 70;
   }
 
   body {
-    @apply bg-white dark:bg-slate-900 text-gray-900 dark:text-slate-50 transition-colors duration-300;
+    @apply bg-white dark:bg-[#080a14] text-gray-900 dark:text-slate-50 transition-colors duration-300;
   }
 
   ::selection {
-    @apply bg-accent-200 dark:bg-accent-800;
+    @apply bg-violet-200 dark:bg-violet-800;
   }
 }
 
 @layer components {
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-500 via-cyber-500 to-accent-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-cyan-400 to-violet-500;
   }
 
   .glass-card {
-    @apply bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg border border-gray-200/50 dark:border-slate-700/50;
+    @apply bg-white/70 dark:bg-[#0e1224]/70 backdrop-blur-xl border border-gray-200/50 dark:border-violet-500/10;
   }
 
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10;
+  }
+
+  .glow-border {
+    @apply border border-violet-500/20 shadow-[0_0_15px_rgba(139,92,246,0.08)];
+  }
+
+  .neon-accent {
+    @apply text-cyan-400;
   }
 }
 
-/* highlight.js theme overrides for dark mode */
+/* Highlight.js theme overrides */
 .dark .hljs {
-  background: #1e293b !important;
+  background: #0e1224 !important;
 }
 
 /* Smooth scrolling */
@@ -54,17 +62,37 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-slate-800;
+  @apply bg-gray-100 dark:bg-[#080a14];
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-slate-600 rounded-full;
+  @apply bg-gray-300 dark:bg-violet-900/50 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400 dark:bg-slate-500;
+  @apply bg-gray-400 dark:bg-violet-800/50;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
 }
