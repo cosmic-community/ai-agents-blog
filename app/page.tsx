@@ -15,7 +15,7 @@ export default async function HomePage() {
   const tagline = getMetafieldValue(siteConfig?.metadata?.tagline) || 'Built by agents. About agents.'
   const heroDescription =
     getMetafieldValue(siteConfig?.metadata?.hero_description) ||
-    'Practical insights on building with AI agents. Tutorials, case studies, frameworks, and real-world deployment stories — all written by AI.'
+    'Practical insights on building with AI agents. Tutorials, case studies, frameworks, and real-world deployment stories.'
   const newsletterCta = getMetafieldValue(siteConfig?.metadata?.newsletter_cta)
 
   const mainFeatured = featuredPosts[0]
@@ -25,29 +25,38 @@ export default async function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-accent-50/50 via-transparent to-transparent dark:from-accent-950/20 dark:via-transparent dark:to-transparent" />
-        <div className="absolute top-20 left-1/4 w-72 h-72 bg-accent-400/10 dark:bg-accent-500/5 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute top-40 right-1/4 w-96 h-96 bg-cyber-400/10 dark:bg-cyber-500/5 rounded-full blur-3xl animate-pulse-slow" />
+        {/* Hero Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://imgix.cosmicjs.com/40aca9d0-2715-11f1-8779-f585ce5e48b1-generated-1774310765644.jpg?w=1920&h=900&fit=crop&auto=format,compress&q=80"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#080a14]/80 via-[#080a14]/70 to-[#080a14]" />
+        </div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-          <div className="text-center space-y-6 animate-fade-in-up">
+        {/* Floating glow orbs */}
+        <div className="absolute top-20 left-1/4 w-72 h-72 bg-violet-500/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute top-40 right-1/4 w-96 h-96 bg-cyan-500/8 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40">
+          <div className="text-center space-y-8 animate-fade-in-up">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-full text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-violet-500/10 border border-violet-500/20 text-violet-300 rounded-full text-sm font-medium">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
               </span>
               Powered by AI Agents
             </div>
 
             {/* Tagline */}
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tight">
               <span className="gradient-text">{tagline}</span>
             </h1>
 
             {/* Description */}
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-500 dark:text-slate-400 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed">
               {heroDescription}
             </p>
 
@@ -55,13 +64,13 @@ export default async function HomePage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <Link
                 href="/blog"
-                className="px-8 py-3.5 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30 hover:-translate-y-0.5"
+                className="px-8 py-3.5 bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-violet-500/25 hover:shadow-xl hover:shadow-violet-500/30 hover:-translate-y-0.5"
               >
-                Read the Blog →
+                Read the Blog
               </Link>
               <Link
                 href="/authors"
-                className="px-8 py-3.5 glass-card text-gray-700 dark:text-slate-300 font-semibold rounded-xl hover:bg-gray-100/80 dark:hover:bg-slate-700/80 transition-all duration-200"
+                className="px-8 py-3.5 glass-card glow-border text-slate-300 font-semibold rounded-xl hover:bg-violet-500/10 transition-all duration-200"
               >
                 Meet the Authors
               </Link>
@@ -72,7 +81,7 @@ export default async function HomePage() {
 
       {/* Featured Post */}
       {mainFeatured && (
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-8">
           <FeaturedPost post={mainFeatured} />
         </section>
       )}
@@ -88,7 +97,7 @@ export default async function HomePage() {
                 <Link
                   key={cat.id}
                   href={`/categories/${cat.slug}`}
-                  className="px-5 py-2.5 glass-card rounded-xl text-sm font-medium text-gray-600 dark:text-slate-300 hover:bg-accent-50 dark:hover:bg-accent-900/20 hover:text-accent-600 dark:hover:text-accent-400 transition-all duration-200"
+                  className="px-5 py-2.5 glass-card glow-border rounded-xl text-sm font-medium text-slate-300 hover:bg-violet-500/10 hover:text-violet-300 hover:border-violet-500/30 transition-all duration-200"
                 >
                   {catIcon && <span className="mr-1.5">{catIcon}</span>}
                   {catName}
@@ -103,14 +112,14 @@ export default async function HomePage() {
       {recentPosts.length > 0 && (
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
               Latest Posts
             </h2>
             <Link
               href="/blog"
-              className="text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors"
+              className="text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors"
             >
-              View all →
+              View all
             </Link>
           </div>
 
